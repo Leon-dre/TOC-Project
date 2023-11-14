@@ -2,8 +2,8 @@
 
 import customtkinter
 
-customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("dark-blue")
+customtkinter.set_appearance_mode("system")
+customtkinter.set_default_color_theme("green")
 
 root = customtkinter.CTk()
 root.geometry("1000x700")
@@ -55,6 +55,10 @@ def convert_to_binary():
         
 frame = customtkinter.CTkFrame(master=root)
 frame.pack(pady=20, padx=60, fill="both", expand=True)
+
+#Title of window
+name = customtkinter.CTkLabel(master=frame, text="Binary Converter", font=customtkinter.CTkFont(size=32, weight="bold"))
+name.pack(pady=12, padx=10)
 
 #text field for input
 entry1= customtkinter.CTkEntry(master=frame, placeholder_text="Enter Decimal Number")
