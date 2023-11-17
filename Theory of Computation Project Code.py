@@ -28,6 +28,7 @@ class TuringMachine(object):
     def execute(self, screen, manager):
         clock = pygame.time.Clock()
         next_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (100, 50)), text='Next', manager=manager)
+        pygame.display.set_caption("Turing Machine Tape Visualization")
 
         while self.current_state != 'end':
             time_delta = clock.tick(60)/1000.0
