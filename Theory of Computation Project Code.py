@@ -64,7 +64,7 @@ class TuringMachine(object):
         pygame.quit()
         return ''.join(self.tape)
 
-
+    #Register Machine
 def convert_to_binary():
     # Get the decimal number from the entry field
     decimal_number = float(entry1.get())
