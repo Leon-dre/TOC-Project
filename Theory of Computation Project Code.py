@@ -1,4 +1,10 @@
-#Leondre Bromfield
+#Leondre Bromfield- 2000070
+#Daryn Brown- 2002414
+#Cassandra Powell- 2005742
+#Tichina Buckle -
+#Daniel Nelson-
+
+
 import pygame
 import pygame_gui
 import customtkinter
