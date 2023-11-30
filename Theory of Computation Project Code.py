@@ -31,11 +31,20 @@ class TuringMachine(object):
             self.tape[self.head_position] = new_char
             self.head_position += move_direction
 
+    #Gui for Turing Machine
     def execute(self, screen, manager):
         clock = pygame.time.Clock()
         next_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (100, 50)), text='Next', manager=manager)
         pygame.display.set_caption("Turing Machine Tape Visualization")
 
+        font = pygame.font.Font(None, 36)
+        for i, bit in enumerate(self.tape):
+            tape_text = font.render(bit, True, (255, 255, 255))
+            screen.blit(tape_text, (20 + i * 20, 250))
+        head_text = font.render('^', True, (255, 0, 0))
+        screen.blit(head_text, (20 + self.head_position * 20, 300))
+        pygame.display.flip()
+        
         while self.current_state != 'end':
             time_delta = clock.tick(60)/1000.0
             for event in pygame.event.get():
@@ -94,6 +103,7 @@ def convert_to_binary():
     textbox.insert("0.0",steps)
     textbox.configure(state='disabled')
 
+#Function that calls the turing machine to reverse the binary String
 def reverse_binary():
     binary_input = entryx.get()
     pygame.init()
@@ -109,6 +119,7 @@ def reverse_binary():
     entryy.configure(state='disabled') 
     subtract_last_four_digits()
 
+#function to carry out the chosen operation
 def subtract_last_four_digits():
     binary_x = entryx.get()
     binary_y_last_four_digits = entryy.get()[-5:]
@@ -121,6 +132,7 @@ def subtract_last_four_digits():
     entryminus.insert(0, f"{result_binary} ---> {result_int}")
     entryminus.configure(state='disabled') 
 
+#main user interface
 customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("green")
 
